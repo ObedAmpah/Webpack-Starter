@@ -30,6 +30,7 @@
     "webpack-merge": "^4.1.0"
   },
   "devDependencies": {
+    "compression-webpack-plugin": "^1.0.0",
     "webpack-bundle-analyzer": "^2.8.3"
   }
 }

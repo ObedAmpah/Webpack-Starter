@@ -3,6 +3,7 @@ import path from 'path'
 import merge from 'webpack-merge'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
+import CompressionPlugin from 'compression-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 
@@ -20,6 +21,7 @@ const entries = [
 // Define our plugins
 const plugins = [
   new webpack.HotModuleReplacementPlugin(),
+
   new CleanWebpackPlugin(['dist'], {
     root: paths.appRoot,
     dry: false,
@@ -32,7 +34,8 @@ const plugins = [
   }),
 
   new webpack.optimize.UglifyJsPlugin({
-    sourceMap: true
+    sourceMap: false,
+    mangle: true
   }),
 
   new webpack.optimize.CommonsChunkPlugin({
@@ -42,6 +45,14 @@ const plugins = [
       const context = module.context
       return context && context.indexOf('node_modules') >= 0
     }
+  }),
+
+  new CompressionPlugin({
+    asset: '[path].gz[query]',
+    algorithm: 'gzip',
+    test: /\.js$|\.css$|\.html$/,
+    threshold: 10240,
+    minRatio: 0.8
   }),
 
   new BundleAnalyzerPlugin({
