@@ -15,7 +15,8 @@ const paths = {
 
 // Define our entry points
 const entries = [
-  './src/index.js'
+  './src/index.js',
+  './assets/styles/master.scss'
 ]
 
 // Define our plugins
@@ -55,9 +56,11 @@ const plugins = [
     minRatio: 0.8
   }),
 
-  new BundleAnalyzerPlugin({
-    analyzerMode: 'static'
-  })
+  // UnComment for bundle analysis
+
+  // new BundleAnalyzerPlugin({
+  //   analyzerMode: 'static'
+  // })
 ]
 
 const config = {
@@ -83,6 +86,16 @@ const config = {
           options: {
             presets: ['es2015', 'react']
           }
+        }]
+      },
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader'
+        }, {
+          loader: 'sass-loader'
         }]
       }
     ]
