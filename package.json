@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "webpack-dev-server --open",
     "build": "webpack",
-    "lint": "eslint **/*.js --ignore-pattern node_modules || exit 0"
+    "lint": "eslint **/*.js --ignore-pattern node_modules || exit 0",
+    "test": "jest || true",
+    "test-watch": "jest --watch || true"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
     "clean-webpack-plugin": "^0.1.16",
     "html-webpack-plugin": "^2.30.1",
     "path": "^0.12.7",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "webpack": "^3.4.1",
@@ -31,13 +34,37 @@
     "webpack-merge": "^4.1.0"
   },
   "devDependencies": {
+    "babel-jest": "^20.0.3",
     "compression-webpack-plugin": "^1.0.0",
     "css-loader": "^0.28.4",
+    "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
     "eslint": "^4.3.0",
     "eslint-plugin-react": "^7.1.0",
+    "jest": "^20.0.4",
     "node-sass": "^4.5.3",
+    "react-addons-test-utils": "^15.6.0",
+    "react-test-renderer": "^15.6.1",
+    "regenerator-runtime": "^0.10.5",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack-bundle-analyzer": "^2.8.3"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "text",
+      "json",
+      "json-summary",
+      "lcov"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    }
   }
 }

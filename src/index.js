@@ -1,4 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './modules/app/components/App'
 
-ReactDOM.render(<div>{'Wunderbar, He exclaimed with great relish.'}</div>, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))
