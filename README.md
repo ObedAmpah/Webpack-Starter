@@ -6,20 +6,20 @@ Create a `webpack` project starter from the ground up, to better understand the 
 
 Below you will find a rough list of the items this project explores, and the tools used to satisfy the requirements for a true project starter.
 
-1. App Framework
+1. Package Manager
 
-`node`
+  `npm`
 
-2. App Bundler
+2. Bundler
 
-`webpack`
+  `webpack`
 
 3. Test Framework
 
-`jest`
+  `jest`
 
 *Coming Soon*
 
 4. Pipeline
 
-`circleCI`
+  `circleCI`
