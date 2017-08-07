@@ -31,7 +31,8 @@ const plugins = [
 
   new HtmlWebpackPlugin({
     inject: true,
-    template: path.join(paths.appRoot, '/src/index.html')
+    template: path.join(paths.appRoot, '/src/index.html'),
+    chunksSortMode: 'dependency'
   }),
 
   new webpack.optimize.UglifyJsPlugin({
