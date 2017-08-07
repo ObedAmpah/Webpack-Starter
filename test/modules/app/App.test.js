@@ -1,15 +1,23 @@
 import React from 'react'
-import App from '../../../src/modules/app/components/App.js'
-import renderer from 'react-test-renderer'
+import App from '../../../src/modules/app/components/App'
 import toJSON from 'enzyme-to-json'
+import { shallow } from 'enzyme'
 
 test('App', () => {
 
   it('should render without crashing', () => {
-    const app = renderer.create(
+    const app = shallow(
       <App />
-    ).toJSON()
+    )
 
     expect(app).toMatchSnapshot()
+  })
+
+  it('should have a string propType', () => {
+    const app = shallow(
+      <App greeting={'Hello World'} />
+    )
+
+    expect(app.prop('greeting').toNotEqual('Hello World'))
   })
 })

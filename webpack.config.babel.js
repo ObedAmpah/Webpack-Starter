@@ -75,7 +75,7 @@ const config = {
     chunkFilename: '[name].js'
   },
 
-  // Define our modules
+  // modules
   module: {
     rules: [
       {
@@ -101,10 +101,10 @@ const config = {
     ]
   },
 
-  // Set our plugins
+  // plugins
   plugins: plugins,
 
-  // Deal with extensions
+  // extensions
   resolve: {
     extensions: ['*', '.js', '.jsx']
   }
